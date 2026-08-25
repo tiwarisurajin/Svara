@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#05070a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Svara">
+<meta name="description" content="Svara — a cinematic personal music player.">
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/icon-192.png">
+<title>Svara — Music Player</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="backdrop-overlay" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button class="brand" id="brandBtn" aria-label="Svara home">
+      <img src="../images/logo.svg" alt="">
+      <span>Svara</span>
+    </button>
+    <nav class="topnav" aria-label="Primary">
+      <button class="nav-link active" data-view="home">Home</button>
+      <button class="nav-link" data-view="library">Library</button>
+      <button class="nav-link" data-view="favorites">Liked</button>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-btn" id="searchBtn" aria-label="Search"><span class="icon">⌕</span></button>
+      <button class="icon-btn" id="installBtn" aria-label="Install Svara" hidden><span class="icon">⇩</span></button>
+      <button class="icon-btn" id="menuBtn" aria-label="Open menu"><span class="icon">☰</span></button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <section class="hero" id="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">SVARA · YOUR MUSIC</span>
+        <h1 id="playlistTitle">Best of Musica — No Copyright Sounds</h1>
+        <p id="playlistSub">A cinematic player for your local music.</p>
+      </div>
+      <div class="song-feed" id="songFeed" aria-label="Song list"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <div class="empty-icon">♫</div>
+        <h2>Your library is empty</h2>
+        <p>Add MP3, WAV, M4A or other audio files to start building Svara.</p>
+        <label class="primary-btn" for="fileInput">Add music</label>
+      </div>
+    </section>
+  </main>
+
+  <div class="search-panel" id="searchPanel" hidden>
+    <div class="search-box">
+      <span>⌕</span>
+      <input id="searchInput" placeholder="Search songs..." autocomplete="off">
+      <button id="closeSearch" class="mini-btn" aria-label="Close search">×</button>
+    </div>
+  </div>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head"><strong>Queue & Library</strong><button id="closeDrawer" class="mini-btn">×</button></div>
+    <div class="drawer-section">
+      <label class="primary-btn wide" for="fileInput">＋ Add music</label>
+      <input id="fileInput" type="file" accept="audio/*" multiple hidden>
+      <button class="secondary-btn wide" id="clearLibrary">Clear imported tracks</button>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-label">Playback</div>
+      <button class="drawer-row" id="drawerShuffle">Shuffle <span>Off</span></button>
+      <button class="drawer-row" id="drawerRepeat">Repeat <span>Off</span></button>
+    </div>
+    <div class="drawer-section">
+      <div class="drawer-label">Install</div>
+      <p class="drawer-note">Install Svara to your home screen for an app-like experience.</p>
+      <button class="primary-btn wide" id="drawerInstall" hidden>Install Svara</button>
+    </div>
+  </aside>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+
+  <footer class="player">
+    <div class="now-playing">
+      <div class="now-art"><img src="../images/logo.svg" alt=""></div>
+      <div class="now-meta">
+        <span class="now-label">NOW PLAYING</span>
+        <strong id="nowTitle">Nothing playing</strong>
+        <span id="nowArtist">Svara</span>
+      </div>
+      <button class="like-btn" id="likeBtn" aria-label="Like current song">♡</button>
+    </div>
+
+    <div class="transport">
+      <button class="player-btn secondary" id="shuffleBtn" aria-label="Shuffle">⤨</button>
+      <button class="player-btn" id="prevBtn" aria-label="Previous">◀|</button>
+      <button class="play-btn" id="playBtn" aria-label="Play"><span id="playIcon">▶</span></button>
+      <button class="player-btn" id="nextBtn" aria-label="Next">|▶</button>
+      <button class="player-btn secondary" id="repeatBtn" aria-label="Repeat">↻</button>
+    </div>
+
+    <div class="volume">
+      <span id="volumeIcon">◖</span>
+      <input id="volumeSlider" type="range" min="0" max="1" step=".01" value=".78" aria-label="Volume">
+    </div>
+
+    <div class="progress-row">
+      <span id="currentTime">0:00</span>
+      <input id="progressBar" type="range" min="0" max="100" value="0" step=".1" aria-label="Track progress">
+      <span id="duration">0:00</span>
+    </div>
+  </footer>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button class="mobile-nav-link active" data-view="home"><span>⌂</span>Home</button>
+    <button class="mobile-nav-link" data-view="library"><span>♫</span>Library</button>
+    <button class="mobile-nav-link" data-view="favorites"><span>♡</span>Liked</button>
+    <button class="mobile-nav-link" id="mobileMenu"><span>☰</span>More</button>
+  </nav>
+
+  <audio id="audio" preload="metadata"></audio>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
