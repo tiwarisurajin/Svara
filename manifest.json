@@ -3,7 +3,7 @@
   "short_name": "Svara",
   "description": "A cinematic, app-like personal music player.",
   "start_url": "./index.html",
-  "scope": "./",
+  "scope": "index.html",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#05070a",
