@@ -39,8 +39,3 @@ self.addEventListener("fetch", e => {
             }).catch(() => caches.match("./index.html")); // FIXED: points to root index.html
         })
     );
-});
-
-self.addEventListener("message", e => {
-    if (e.data === "SKIP_WAITING") self.skipWaiting();
-});
