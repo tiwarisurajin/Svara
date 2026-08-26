@@ -1,8 +1,8 @@
 {
-  "name": "Svara \u2014 Music Player",
+  "name": "Svara — Music Player",
   "short_name": "Svara",
   "description": "A cinematic, app-like personal music player.",
-  "start_url": "./src/index.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
@@ -26,7 +26,7 @@
     {
       "name": "Open Library",
       "short_name": "Library",
-      "url": "./src/index.html#library",
+      "url": "./index.html#library",
       "icons": [
         {
           "src": "./icons/icon-192.png",
@@ -38,7 +38,7 @@
     {
       "name": "Liked Songs",
       "short_name": "Liked",
-      "url": "./src/index.html#favorites",
+      "url": "./index.html#favorites",
       "icons": [
         {
           "src": "./icons/icon-192.png",
